@@ -8,11 +8,11 @@ export async function POST(request: Request) {
     const inputUser = String(username || '').trim();
     const inputPass = String(password || '').trim();
 
-    const envUser = String(process.env.ADMIN_USERNAME || 'ukrtab-admin-1').replace(/^["']|["']$/g, '').trim();
-    const envPass = String(process.env.ADMIN_PASSWORD || '2Ufv#?HA)B#mw.Ag^').replace(/^["']|["']$/g, '').trim();
+    const envUser = String(process.env.ADMIN_USERNAME || 'admin').replace(/^["']|["']$/g, '').trim();
+    const envPass = String(process.env.ADMIN_PASSWORD || '').replace(/^["']|["']$/g, '').trim();
 
-    const isValidUser = inputUser === envUser || inputUser === 'ukrtab-admin-1' || inputUser === 'admin';
-    const isValidPass = inputPass === envPass || inputPass === '2Ufv#?HA)B#mw.Ag^' || inputPass === 'admin123';
+    const isValidUser = inputUser === envUser;
+    const isValidPass = Boolean(envPass) && inputPass === envPass;
 
     if (isValidUser && isValidPass) {
       const token = createAdminToken();
