@@ -7,7 +7,6 @@ import { CartDrawer } from '@/components/CartDrawer';
 import { FloatingContactWidget } from '@/components/FloatingContactWidget';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { NavigationProgressBar } from '@/components/NavigationProgressBar';
-import { Analytics } from '@vercel/analytics/next';
 import { Suspense } from 'react';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://ukrtab.com.ua';
@@ -111,7 +110,6 @@ export default function RootLayout({
         </CartProvider>
 
         <GoogleAnalytics gaId={gaId} />
-        <Analytics />
       </body>
     </html>
   );
