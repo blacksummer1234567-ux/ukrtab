@@ -1,0 +1,8 @@
+# Default configuration: serves on port 80 (HTTP) for testing by IP.
+# When you have a domain pointed to this server (e.g. ukrtab.com.ua):
+# Replace ":80" with your domain name (e.g. "ukrtab.com.ua, www.ukrtab.com.ua")
+# and Caddy will automatically provision and renew free SSL certificates (HTTPS)!
+
+:80 {
+    reverse_proxy web:3000
+}
